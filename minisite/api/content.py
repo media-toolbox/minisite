@@ -8,12 +8,21 @@ from minisite.core import config
 
 router = APIRouter()
 
+# Configure template loader with multiple directories.
 template_directory = pkg_resources.resource_filename("minisite", "templates")
-templates = Jinja2Templates(directory=template_directory)
+template_directories = [template_directory]
+MS_TEMPLATE_FOLDER = config.config.get("MS_TEMPLATE_FOLDER", default=None)
+if MS_TEMPLATE_FOLDER is not None:
+    template_directories.insert(0, MS_TEMPLATE_FOLDER)
+templates = Jinja2Templates(directory=template_directories)
 
 
 @router.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse(
-        "index.html", context={"request": request, "id": id, "config": config.all()}
-    )
+    tplvars = {
+        "request": request,
+        "content_template": "content.html",
+        "id": id,
+        "config": config.all(),
+    }
+    return templates.TemplateResponse("index.html", context=tplvars)
