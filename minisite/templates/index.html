@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>{{ config.MS_SITE_TITLE }}</title>
+
+  <script type="module">
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!--
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/print.css" media="print">
+  -->
+
+  <meta name="description" content="{{ config.MS_SITE_DESCRIPTION }}">
+  <meta property="og:title" content="{{ config.MS_SITE_TITLE }}">
+  <meta property="og:description" content="{{ config.MS_SITE_DESCRIPTION }}">
+  <meta property="og:image" content="{{ config.MS_SITE_IMAGE_URL }}">
+  <meta property="og:image:alt" content="{{ config.MS_SITE_IMAGE_DESCRIPTION }}">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="{{ config.MS_SITE_IMAGE_DESCRIPTION }}">
+  <meta property="og:url" content="{{ config.MS_SITE_URL }}">
+  <link rel="canonical" href="{{ config.MS_SITE_URL }}">
+
+  <link rel="icon" href="{{ config.MS_SITE_ICON_URL }}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ config.MS_SITE_ICON_URL }}">
+  <link rel="manifest" href="{{ config.MS_SITE_WEBMANIFEST_URL }}">
+  <meta name="theme-color" content="#FF00FF">
+</head>
+
+<body>
+  <!-- Content -->
+  <!--
+  <script src="/assets/js/xy-polyfill.js" nomodule></script>
+  <script src="/assets/js/script.js" type="module"></script>
+  -->
+  {% include "content.html" %}
+</body>
+</html>
+<!-- https://www.matuzo.at/blog/html-boilerplate/ -->

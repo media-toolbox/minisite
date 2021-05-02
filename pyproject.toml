@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "minisite"
+version = "0.1.0"
+description = "A minimal dynamic website written in Python, based on FastAPI"
+authors = [
+    "Andreas Motl <andreas.motl@elmyra.de>",
+]
+license = "AGPL"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fastapi = "^0.45.0"
+uvicorn = "^0.11.1"
+loguru = "^0.4.0"
+Jinja2 = "^2.11.3"
+munch = "^2.5.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.3"
+black = {version = "^19.10b0", allow-prereleases = true}
+isort = "^5.8.0"
+autopep8 = "^1.4.4"
+flake8 = "^3.9.1"
+flakehell = "^0.9.0"
+
+[tool.poetry.scripts]
+minisite = 'minisite.main:run'
+
+[tool.flakehell]
+max-line-length = 90
+exclude = []
+extended_default_ignore = []
+
+[tool.flakehell.plugins]
+pycodestyle = ["+*", "-E203", "-W503"]
+pyflakes = ["+*"]
+flake8-bandit = ["+*"]
+flake8-black = ["+*"]
+flake8-bugbear = ["+*"]
+flake8-isort = ["+*"]
+
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
